@@ -1,0 +1,31 @@
+TL;DR;-----------------------------------------------------------------------
+To use these singletons, make a C# script that has this signature:
+
+public class MyClass : Singleton<MyClass>, ISingleton
+{
+
+	public void Init()
+	{
+		// Whatever you want Init to do.
+	}
+
+}
+-----------------------------------------------------------------------------
+
+Explanation:
+
+Inheriting from Singleton<T> allows you to not have to write boilerplate singleton code.
+This gives the class an Instance() function.
+
+ISingleton gives you an Init() function which must be defined. This is called either on Awake or first Instance() call.
+
+
+NOTE -- IF YOU INHERIT FROM A CLASS THAT INHERITS FROM SINGLETON<T> YOU MUST OVERRIDE INSTANCE().
+
+public class NewClass : MyClass
+{
+	public static new NewClass Instance()
+	{
+		return MyClass.Instance() as NewClass;
+	}
+}
