@@ -6,7 +6,6 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class FaderCanvas : MonoBehaviour {
-    [SerializeField] List<FxEvent> fxEvents = new List<FxEvent>();
     [SerializeField] List<UnityEvent> events = new List<UnityEvent>();
     [SerializeField] Image image;
 
@@ -23,10 +22,6 @@ public class FaderCanvas : MonoBehaviour {
 
     public void PlayShit()
     {
-        foreach (FxEvent fxEvent in fxEvents)
-        {
-            fxEvent.Invoke();
-        }
         foreach (UnityEvent eventt in events)
         {
             eventt.Invoke();

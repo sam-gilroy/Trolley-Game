@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f7085886a095144b714a0836ea0af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fxEvents: []
   events: []
   image: {fileID: 114593478660392376}
 --- !u!114 &114501013782097368
