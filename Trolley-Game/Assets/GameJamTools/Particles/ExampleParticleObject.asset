@@ -3,13 +3,13 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3aa172c18243ba54ba2026adbfbc2334, type: 3}
-  m_Name: NewParticle
+  m_Name: ExampleParticleObject
   m_EditorClassIdentifier: 
   ParticlePrefab: {fileID: 114748396290783840, guid: 7fb3cbdd3d14123459b23327fd05d1ac,
     type: 2}
