@@ -34,7 +34,7 @@ namespace GameJamTools
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
-                Debug.LogError("You cannot put Singletons into the scene -- they must be instantiated by calling Instance()");
+                Debug.LogError("You cannot put Singletons into the scene via editor -- they must be instantiated by calling Instance()");
                 DestroyImmediate(this);
             }
 #endif
