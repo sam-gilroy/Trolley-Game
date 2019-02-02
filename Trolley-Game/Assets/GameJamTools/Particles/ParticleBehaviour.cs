@@ -53,7 +53,7 @@ namespace GameJamTools
             active = false;
             particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             transform.parent = null;
-           // StartCoroutine(RecycleRoutine());
+            StartCoroutine(RecycleRoutine());
         }
 
         IEnumerator RecycleRoutine()
