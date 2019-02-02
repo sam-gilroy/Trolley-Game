@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace GameJamTools
 {
+    /// <summary>
+    /// Note for potential refactor: This could work better as a component that has related components implement "IPoolable" to reset data. . . 
+    /// This would avoid issues with Multiple Inheritance.
+    /// 
+    /// As to whether or not adding a second component (or requiring it?) is too complicated is another question.
+    /// </summary>
     public abstract class AObjectPoolable : MonoBehaviour
     {
 
@@ -41,8 +47,6 @@ namespace GameJamTools
         {
             CancelInvoke();
         }
-
-
 
     }
 }
