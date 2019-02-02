@@ -11,18 +11,13 @@ namespace GameJamTools
         public int sizePP;
     }
 
-    public class ParticleManager : Singleton<ParticleManager>, ISingleton
+    public class ParticleManager : Singleton<ParticleManager>
     {
         Dictionary<ParticleObject, ParticlePool> ParticleObjectMap = new Dictionary<ParticleObject, ParticlePool>();
 
         public ParticleBehaviour Spawn()
         {
             return null;
-        }
-
-        public void Init()
-        {
-            //particlePools = new List<GameObject>();
         }
 
         ParticlePool AddPool(ParticleObject newObject)

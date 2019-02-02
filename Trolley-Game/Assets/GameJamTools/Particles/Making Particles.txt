@@ -1,0 +1,17 @@
+Steps to making particles --
+
+1) Make a particles system in the scene
+2) Attach a "ParticleBehaviour" to it. This will recall it to its object pool.
+3) Prefab it
+4) Make a new ParticleObject by going to the Project view, and hitting Right Click->GameJamTools->Particle Object
+5) Drag the prefab into the slot
+
+Spawning Particles --
+
+1) Make a script with a public or [SerializeField] ParticleObject reference
+2) When you want to spawn it, call its .Spawn(position) function. It will make the call to ParticleManager.Instance() and you should see a GameJamTools.ParticleManager appear under the DontDestroyOnLoad tab of the hierarchy
+
+
+Notes:
+- Non looping particles are recycled automatically
+- looping particles have to be manually told to recycle.

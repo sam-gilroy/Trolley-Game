@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameJamTools
 {
-    public class ObjectPool<T> : Singleton<ObjectPool<T>>, ISingleton where T : AObjectPoolable
+    public class ObjectPool<T> : Singleton<ObjectPool<T>> where T : AObjectPoolable
     {
         [SerializeField] T Prefab;
 
@@ -42,7 +42,7 @@ namespace GameJamTools
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        /// 
+        ///
         public T Spawn(Vector3 position)
         {
             T t = Spawn();
@@ -69,12 +69,6 @@ namespace GameJamTools
             t.gameObject.SetActive(false);
             t.transform.parent = transform;
             RecycledObjects.Push(t);
-        }
-
-
-        public virtual void Init()
-        {
-            PrivInit();
         }
 
     }
