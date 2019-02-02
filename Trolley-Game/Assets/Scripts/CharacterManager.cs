@@ -12,13 +12,15 @@ using GameJamTools;
 /// 
 /// Probably needs a tiered object pool a la how the ParticleManger does it
 /// </summary>
-public class CharacterManager : Singleton<CharacterManager>, ISingleton {
+public class CharacterManager : Singleton<CharacterManager> {
     [SerializeField] CharacterComponent DefaultCharacterPrefab;
 
     CharacterComponent[] CharacterPrefabs;
 
-    public void Init()
+    protected override void Awake()
     {
+        base.Awake();
+
         CharacterPrefabs = Resources.LoadAll<CharacterComponent>("Prefabs/Characters");
         SpawnRandomCharacter();
     }
