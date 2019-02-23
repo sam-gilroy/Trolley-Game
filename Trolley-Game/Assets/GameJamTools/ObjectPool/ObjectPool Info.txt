@@ -1,0 +1,35 @@
+ObjectPool --
+
+Removes some boilerplate with one caveat --
+class signatures inheriting from object pool should look like this:
+--------------------------------------------------------------------------------------------------
+class MyClass : ObjectPool<OtherClass>
+{
+	public static new MyClass Instance()
+	{
+		return ObjectPool<OtherClass>.Instance() as MyClass;
+	}
+
+	...
+}
+--------------------------------------------------------------------------------------------------
+
+contains overridable functions for derived behaviour.
+
+
+AObjectPoolable --
+Abstract class to be inherited by the classes you want to pool (Assumed to be MonoBehaviours).
+override and call Spawn and Recycle functions for diverging behaviour.
+
+the second caveat -- Recycle must call its factory's recycle.
+--------------------------------------------------------------------------------------------------
+class OtherClass : AObjectPoolable
+{
+...
+	public override void Recycle()
+	{
+		base.Recycle();
+		MyClass.Instance().Recycle(this);
+	}
+}
+--------------------------------------------------------------------------------------------------
