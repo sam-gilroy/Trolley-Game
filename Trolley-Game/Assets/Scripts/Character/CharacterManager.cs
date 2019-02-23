@@ -23,7 +23,6 @@ public class CharacterManager : Singleton<CharacterManager> {
         base.Awake();
 
         CharacterPrefabs = Resources.LoadAll<CharacterComponent>("Prefabs/Characters");
-        SpawnRandomCharacter();
     }
 
     public void SpawnRandomCharacter()
@@ -38,4 +37,21 @@ public class CharacterManager : Singleton<CharacterManager> {
         Instantiate(CharacterPrefabs[r], transform.position, Quaternion.identity);
     }
 
+    public void SpawnScenario(Scenario scenario)
+    {
+        for (int i=0; i<scenario.SwitchCharacters.Length; i++)
+        {
+            SpawnCharacter(scenario.SwitchCharacters[i], transform.position + Vector3.forward * i);
+        }
+
+        for (int i=0; i<scenario.StayCharacters.Length; i++)
+        {
+            SpawnCharacter(scenario.StayCharacters[i], transform.position + Vector3.right * i + Vector3.up  * 1);
+        }
+    }
+
+    public void SpawnCharacter(CharacterComponent character, Vector3 position)
+    {
+        Instantiate(character.gameObject, position + Vector3.up * 10, Quaternion.identity);
+    }
 }
