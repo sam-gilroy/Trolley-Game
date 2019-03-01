@@ -4,39 +4,50 @@ using UnityEngine;
 
 public class LeverTester : MonoBehaviour {
 
-   // public GameObject objSwitchTrack;
+	public GameObject objSwitchTrack;
 
-    [SerializeField] private float trackLeftX = -1.7f;
-    [SerializeField] private float trackRightX = 1.7f;
-    [SerializeField] private bool leaningLeft = true;
+	[SerializeField] private float trackLeftX = -1.7f;
+	[SerializeField] private float trackRightX = 1.7f;
+	[SerializeField] private bool leaningLeft = true;
+    public Train objTrain;
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start() {
 
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+	}
+
+	public void ClickAction() {
+		SwitchDirection ();
+		Debug.Log ("Did the ClickAction");
+		Debug.Log (objSwitchTrack.transform.position.x);
+	}
+
+	public void SwitchDirection() {
+		if (leaningLeft) {
+			RightTrigger ();
+		} else {
+			LeftTrigger ();
+		}
+	}
+
+	public void LeftTrigger()
+	{
+		objSwitchTrack.transform.position = new Vector3(trackLeftX, transform.position.y, transform.position.z);
+		leaningLeft = true;
+        objTrain.leftPath = true;
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
-
-    public void LeftTrigger()
-    {
-        if (!leaningLeft)
-        {
-            gameObject.transform.position.Set(trackLeftX, transform.position.y, transform.position.z);
-            leaningLeft = true;
-        }
-    }
-
-    public void RightTrigger()
-    {
-        if (leaningLeft)
-        {
-            gameObject.transform.position.Set(trackRightX, transform.position.y, transform.position.z);
-            leaningLeft = false;
-        }
-    }
+	public void RightTrigger()
+	{
+		objSwitchTrack.transform.position = new Vector3(trackRightX, transform.position.y, transform.position.z);
+		leaningLeft = false;
+        objTrain.leftPath = false;
+	}
 
 
 }
