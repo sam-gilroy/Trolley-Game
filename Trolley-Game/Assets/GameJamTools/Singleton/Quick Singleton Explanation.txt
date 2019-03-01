@@ -1,0 +1,7 @@
+TL;DR;-----------------------------------------------------------------------
+To use these singletons, make a C# script that has this signature:
+
+public class MyClass : Singleton<MyClass>
+{
+
+}
