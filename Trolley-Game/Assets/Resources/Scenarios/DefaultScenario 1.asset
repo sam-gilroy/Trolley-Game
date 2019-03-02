@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c062300e7bfa2c44ebbb1e850ec4cadb, type: 3}
+  m_Name: DefaultScenario 1
+  m_EditorClassIdentifier: 
+  StayCharacters:
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  SwitchCharacters:
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}
+  - {fileID: 114451134689916894, guid: f8f62cdcfa7b44d4dbd6dfb3f54b067e, type: 2}

@@ -7,9 +7,9 @@ public class Train : MonoBehaviour {
 
     public float speed;
     public bool leftPath = true;
-    public Path[] pathList;
+    public PointPath[] pathList;
     protected NavMeshAgent agent;
-    protected Path path;
+    protected PointPath path;
     protected Transform currentTarget;
     protected int pathIndex;
 
@@ -34,19 +34,24 @@ public class Train : MonoBehaviour {
                 {
                     if (path == pathList[0])
                     {
-                        if (leftPath) path = pathList[1];
-                        else path = pathList[2];
+                        if (leftPath)
+                        {
+                            path = pathList[1];
+                        }
+                        else
+                        {
+                            path = pathList[2];
+                        }
                         pathIndex = 0;
                     }
                     else path = null;
                 }
             }
-
         }
         agent.SetDestination(currentTarget.position);
     }
 
-    public void SetPath(Path p)
+    public void SetPath(PointPath p)
     {
         path = p;
     }

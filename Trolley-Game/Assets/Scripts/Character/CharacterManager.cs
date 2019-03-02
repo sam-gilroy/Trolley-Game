@@ -13,45 +13,67 @@ using GameJamTools;
 /// 
 /// Probably needs a tiered object pool a la how the ParticleManger does it
 /// </summary>
-public class CharacterManager : Singleton<CharacterManager> {
+public class CharacterManager : Singleton<CharacterManager>{
     [SerializeField] CharacterComponent DefaultCharacterPrefab;
 
     CharacterComponent[] CharacterPrefabs;
+    
+    Dictionary<CharacterComponent, CharacterPool> CharacterPools = new Dictionary<CharacterComponent, CharacterPool>();
 
     protected override void Awake()
     {
         base.Awake();
 
         CharacterPrefabs = Resources.LoadAll<CharacterComponent>("Prefabs/Characters");
+
+        foreach(CharacterComponent c in CharacterPrefabs)
+        {
+            CharacterPools.Add(c, new CharacterPool(c));
+        }
     }
 
     public void SpawnRandomCharacter()
     {
         int r = Random.Range(0, CharacterPrefabs.Length);
-        Instantiate(CharacterPrefabs[r], transform.position, Quaternion.identity);
+        Spawn(CharacterPrefabs[r]);
     }
 
     public void SpawnRandomCharacter(Transform transform)
     {
         int r = Random.Range(0, CharacterPrefabs.Length);
-        Instantiate(CharacterPrefabs[r], transform.position, Quaternion.identity);
+        CharacterComponent c = Spawn(CharacterPrefabs[r]);
+        c.transform.position = transform.position;
     }
 
     public void SpawnScenario(Scenario scenario)
     {
         for (int i=0; i<scenario.SwitchCharacters.Length; i++)
         {
-            SpawnCharacter(scenario.SwitchCharacters[i], transform.position + Vector3.forward * i);
+            Spawn(scenario.SwitchCharacters[i], transform.position + Vector3.forward * i);
         }
 
         for (int i=0; i<scenario.StayCharacters.Length; i++)
         {
-            SpawnCharacter(scenario.StayCharacters[i], transform.position + Vector3.right * i + Vector3.up  * 1);
+            Spawn(scenario.StayCharacters[i], transform.position + Vector3.right * i + Vector3.up  * 1);
         }
     }
 
-    public void SpawnCharacter(CharacterComponent character, Vector3 position)
+    public CharacterComponent Spawn(CharacterComponent character, Vector3 position)
     {
-        Instantiate(character.gameObject, position + Vector3.up * 10, Quaternion.identity);
+        return CharacterPools[character].Spawn(position);
+    }
+
+    public CharacterComponent Spawn(CharacterComponent Prefab)
+    {
+        return CharacterPools[Prefab].Spawn();
+    }
+
+    public void RecallAllCharacters()
+    {
+        foreach(KeyValuePair<CharacterComponent, CharacterPool> pool in CharacterPools)
+        {
+            pool.Value.RecallAllCharacters();
+        }
     }
 }
+
