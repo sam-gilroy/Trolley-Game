@@ -27,7 +27,7 @@ public class Train : MonoBehaviour {
         {
             currentTarget = path.pathPoints[pathIndex].transform;
 
-            if (Vector3.Distance(currentTarget.transform.position, transform.position) < 1.0f)
+            if (Vector3.Distance(currentTarget.transform.position, transform.position) < 0.5f)
             {
                 pathIndex++;
                 if (pathIndex >= path.pathPoints.Count)
@@ -44,7 +44,11 @@ public class Train : MonoBehaviour {
                         }
                         pathIndex = 0;
                     }
-                    else path = null;
+                    else
+                    {
+                        ScenarioManager.Instance().GoToNextScenario();
+                        path = null;
+                    }
                 }
             }
         }

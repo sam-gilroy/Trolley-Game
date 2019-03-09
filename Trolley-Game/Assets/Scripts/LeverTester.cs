@@ -13,8 +13,11 @@ public class LeverTester : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-
-	}
+        if (!leaningLeft)
+        {
+            objSwitchTrack.transform.position = new Vector3(trackRightX, transform.position.y, transform.position.z);
+        }
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -23,8 +26,6 @@ public class LeverTester : MonoBehaviour {
 
 	public void ClickAction() {
 		SwitchDirection ();
-		Debug.Log ("Did the ClickAction");
-		Debug.Log (objSwitchTrack.transform.position.x);
 	}
 
 	public void SwitchDirection() {

@@ -18,7 +18,8 @@ public class GameManager : PrefabbedSingleton<GameManager> {
 
     public void CompleteGame()
     {
-        ScenarioManager.Instance().GoToScenario(0);
+        GoToMainMenu();
+        // ScenarioManager.Instance().GoToScenario(0);
     }
 
 }

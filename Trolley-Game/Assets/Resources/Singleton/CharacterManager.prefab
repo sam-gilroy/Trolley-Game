@@ -9,46 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1139654993541198}
+  m_RootGameObject: {fileID: 1155712275522498}
   m_IsPrefabAsset: 1
---- !u!1 &1139654993541198
+--- !u!1 &1155712275522498
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4712738442610378}
-  - component: {fileID: 114832936853988214}
+  - component: {fileID: 4015407318404554}
+  - component: {fileID: 114841965582303044}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: CharacterManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4712738442610378
+--- !u!4 &4015407318404554
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1139654993541198}
+  m_GameObject: {fileID: 1155712275522498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1289108, y: 1.2662458, z: 5.619894}
+  m_LocalPosition: {x: 1.9301186, y: -7.742277, z: -1.0599504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114832936853988214
+--- !u!114 &114841965582303044
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1139654993541198}
+  m_GameObject: {fileID: 1155712275522498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9214b4c775c7e340a281811659e20e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 71edf2db7beb0c64a90969a004ebacc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameScene: {fileID: 102900000, guid: 6c3532497822ab6449bc0fc67e484025, type: 3}
+  DefaultCharacterPrefab: {fileID: 0}
+  spawnPosStay: {x: 0, y: 0, z: -6}
+  spawnPosSwitch: {x: -4, y: 0, z: -6}

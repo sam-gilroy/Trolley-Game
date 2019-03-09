@@ -9,7 +9,7 @@ public class ScenarioManager : PrefabbedSingleton<ScenarioManager> {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Test()
     {
-        CharacterManager.Instance().SpawnScenario(Instance().scenarios[0]);
+        // CharacterManager.Instance().SpawnScenario(Instance().scenarios[0]);
     }
 
     public void GoToNextScenario()
@@ -22,8 +22,10 @@ public class ScenarioManager : PrefabbedSingleton<ScenarioManager> {
             GameManager.Instance().CompleteGame();
             return;
         }
-
-        StartScenario();
+        else
+        {
+            GameManager.Instance().StartGame();
+        }
     }
 
     public void StartScenario()

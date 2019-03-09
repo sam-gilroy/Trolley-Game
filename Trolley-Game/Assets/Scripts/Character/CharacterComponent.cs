@@ -41,4 +41,12 @@ public class CharacterComponent : MonoBehaviour {
     {
         this.characterPool = pool;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Train"))
+        {
+            Recycle();
+        }
+    }
 }

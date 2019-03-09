@@ -13,8 +13,10 @@ using GameJamTools;
 /// 
 /// Probably needs a tiered object pool a la how the ParticleManger does it
 /// </summary>
-public class CharacterManager : Singleton<CharacterManager>{
+public class CharacterManager : PrefabbedSingleton<CharacterManager>{
     [SerializeField] CharacterComponent DefaultCharacterPrefab;
+    public Vector3 spawnPosStay;
+    public Vector3 spawnPosSwitch;
 
     CharacterComponent[] CharacterPrefabs;
     
@@ -49,12 +51,12 @@ public class CharacterManager : Singleton<CharacterManager>{
     {
         for (int i=0; i<scenario.SwitchCharacters.Length; i++)
         {
-            Spawn(scenario.SwitchCharacters[i], transform.position + Vector3.forward * i);
+            Spawn(scenario.SwitchCharacters[i], transform.position + (Vector3.forward * i) + spawnPosSwitch);
         }
 
         for (int i=0; i<scenario.StayCharacters.Length; i++)
         {
-            Spawn(scenario.StayCharacters[i], transform.position + Vector3.right * i + Vector3.up  * 1);
+            Spawn(scenario.StayCharacters[i], transform.position + (Vector3.forward * i)+ spawnPosStay);
         }
     }
 
