@@ -9,48 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1499496557955276}
+  m_RootGameObject: {fileID: 1139654993541198}
   m_IsPrefabAsset: 1
---- !u!1 &1499496557955276
+--- !u!1 &1139654993541198
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4519711187930294}
-  - component: {fileID: 114617335295354644}
+  - component: {fileID: 4712738442610378}
+  - component: {fileID: 114832936853988214}
   m_Layer: 0
-  m_Name: ScenarioManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4519711187930294
+--- !u!4 &4712738442610378
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499496557955276}
+  m_GameObject: {fileID: 1139654993541198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2850797, y: 0.002366336, z: 1.1036702}
+  m_LocalPosition: {x: 2.1289108, y: 1.2662458, z: 5.619894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114617335295354644
+--- !u!114 &114832936853988214
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499496557955276}
+  m_GameObject: {fileID: 1139654993541198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b828f0d60d499f0429cc63c84530e187, type: 3}
+  m_Script: {fileID: 11500000, guid: d9214b4c775c7e340a281811659e20e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarios:
-  - {fileID: 11400000, guid: 0ca88d9c6e9a0d64fa5c0616d8dd705b, type: 2}
-  - {fileID: 11400000, guid: 441ee541ff3e8a54094cb7bfbf8db829, type: 2}
+  GameScene: {fileID: 102900000, guid: 6c3532497822ab6449bc0fc67e484025, type: 3}

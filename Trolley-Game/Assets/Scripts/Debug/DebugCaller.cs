@@ -102,7 +102,7 @@ public class DebugCaller : PrefabbedSingleton<DebugCaller> {
 
     void InvokeCurrentString()
     {
-        string[] args = MyText.Split(' ', '(', ')');
+        string[] args = MyText.Split(' ');
 
         if (args.Length < 3)
         {
@@ -124,6 +124,7 @@ public class DebugCaller : PrefabbedSingleton<DebugCaller> {
     {
         object[] parameters = new object[1];
 
+        GetAllComponents();
         foreach (MonoBehaviour component in Components)
         {
             if (component.gameObject.name.ToUpper() == gameObjectName)

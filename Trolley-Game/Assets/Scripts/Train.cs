@@ -7,9 +7,9 @@ public class Train : MonoBehaviour {
 
     public float speed;
     public bool leftPath = true;
-    public Path[] pathList;
+    public PointPath[] pathList;
     protected NavMeshAgent agent;
-    protected Path path;
+    protected PointPath path;
     protected Transform currentTarget;
     protected int pathIndex;
 
@@ -27,26 +27,35 @@ public class Train : MonoBehaviour {
         {
             currentTarget = path.pathPoints[pathIndex].transform;
 
-            if (Vector3.Distance(currentTarget.transform.position, transform.position) < 1.0f)
+            if (Vector3.Distance(currentTarget.transform.position, transform.position) < 0.5f)
             {
                 pathIndex++;
                 if (pathIndex >= path.pathPoints.Count)
                 {
                     if (path == pathList[0])
                     {
-                        if (leftPath) path = pathList[1];
-                        else path = pathList[2];
+                        if (leftPath)
+                        {
+                            path = pathList[1];
+                        }
+                        else
+                        {
+                            path = pathList[2];
+                        }
                         pathIndex = 0;
                     }
-                    else path = null;
+                    else
+                    {
+                        ScenarioManager.Instance().GoToNextScenario();
+                        path = null;
+                    }
                 }
             }
-
         }
         agent.SetDestination(currentTarget.position);
     }
 
-    public void SetPath(Path p)
+    public void SetPath(PointPath p)
     {
         path = p;
     }
