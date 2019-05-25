@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultCharacterPrefab: {fileID: 0}
-  spawnPosStay: {x: 0, y: 0, z: -6}
-  spawnPosSwitch: {x: -4, y: 0, z: -6}
+  spawnPosStay: {x: 6, y: 0, z: -6}
+  spawnPosSwitch: {x: -13, y: 0, z: -6}
